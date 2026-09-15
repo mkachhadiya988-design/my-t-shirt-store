@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOIR — Premium Streetwear</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #080808;
+    color: #fff;
+}
+
+/* NAVBAR */
+
+nav {
+    height: 80px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+    background: rgba(8,8,8,.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.cart-count {
+    background: white;
+    color: black;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 3px 6px;
+    position: relative;
+    top: -10px;
+    left: -7px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    padding: 70px 7%;
+    background:
+        radial-gradient(circle at 75% 40%, #333 0%, #111 25%, #080808 60%);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #aaa;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #777;
+}
+
+.hero p {
+    color: #aaa;
+    margin-top: 30px;
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 15px 27px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn-white {
+    background: white;
+    color: black;
+}
+
+.btn-white:hover {
+    background: #ccc;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+}
+
+.btn-outline:hover {
+    border-color: white;
+}
+
+/* MARQUEE */
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 18px 0;
+}
+
+.marquee div {
+    display: inline-block;
+    animation: move 18s linear infinite;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #777;
+}
+
+@keyframes move {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* PRODUCTS */
+
+.shop {
+    padding: 90px 7%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 35px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+}
+
+.section-header p {
+    color: #777;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    padding: 10px 18px;
+    background: #111;
+    color: #aaa;
+    border: 1px solid #252525;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.filter.active,
+.filter:hover {
+    background: white;
+    color: black;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    background: #101010;
+    border: 1px solid #1c1c1c;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    border-color: #444;
+}
+
+.product-image {
+    height: 380px;
+    background: #171717;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    color: black;
+    padding: 7px 11px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.add {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #333;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.add:hover {
+    background: white;
+    color: black;
+}
+
+/* BANNER */
+
+.banner {
+    margin: 40px 7% 100px;
+    padding: 70px;
+    background: linear-gradient(120deg,#181818,#080808);
+    border: 1px solid #252525;
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* NEWSLETTER */
+
+.newsletter {
+    text-align: center;
+    padding: 100px 20px;
+    border-top: 1px solid #222;
+}
+
+.newsletter h2 {
+    font-size: 40px;
+}
+
+.newsletter p {
+    color: #777;
+    margin: 15px 0 30px;
+}
+
+.email-box {
+    display: flex;
+    max-width: 450px;
+    margin: auto;
+}
+
+.email-box input {
+    flex: 1;
+    padding: 15px;
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    outline: none;
+}
+
+.email-box button {
+    padding: 15px 25px;
+    background: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 60px 7% 30px;
+    border-top: 1px solid #222;
+    color: #777;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+footer h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+footer a {
+    display: block;
+    color: #777;
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.copyright {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 12px;
+}
+
+/* CART */
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -430px;
+    width: 400px;
+    height: 100vh;
+    background: #101010;
+    z-index: 200;
+    padding: 30px;
+    border-left: 1px solid #333;
+    transition: .4s;
+    overflow-y: auto;
+}
+
+.cart.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid #292929;
+}
+
+.cart-item small {
+    color: #777;
+}
+
+.cart-total {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.checkout {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+/* MOBILE */
+
+@media(max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .products {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+}
+
+@media(max-width: 550px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero {
+        padding: 60px 25px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .shop {
+        padding: 60px 20px;
+    }
+
+    .section-header {
+        display: block;
+    }
+
+    .section-header h2 {
+        margin-bottom: 10px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 430px;
+    }
+
+    .banner {
+        margin: 20px;
+        padding: 50px 20px;
+    }
+
+    .banner h2 {
+        font-size: 35px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cart {
+        width: 100%;
+        right: -100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">NOIR</div>
+
+    <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#shop">SHOP</a>
+        <a href="#new">NEW ARRIVALS</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+
+    <div class="nav-actions">
+        <span class="icon">⌕</span>
+
+        <span class="icon" onclick="openCart()">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </span>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            NEW COLLECTION — 2026
+        </div>
+
+        <h1>
+            WEAR<br>
+            <span>YOUR</span><br>
+            ATTITUDE.
+        </h1>
+
+        <p>
+            Premium streetwear designed for people who
+            don't follow trends. Clean silhouettes,
+            heavyweight fabrics and a statement attitude.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="btn btn-white"
+                    onclick="document.getElementById('shop').scrollIntoView()">
+                SHOP COLLECTION
+            </button>
+
+            <button class="btn btn-outline">
+                EXPLORE
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+    <div>
+        PREMIUM STREETWEAR &nbsp; ✦ &nbsp;
+        DESIGNED FOR THE BOLD &nbsp; ✦ &nbsp;
+        LIMITED DROPS &nbsp; ✦ &nbsp;
+        PREMIUM STREETWEAR &nbsp; ✦ &nbsp;
+        DESIGNED FOR THE BOLD &nbsp; ✦ &nbsp;
+        LIMITED DROPS &nbsp; ✦ &nbsp;
+    </div>
+</div>
+
+
+<!-- SHOP -->
+
+<section class="shop" id="shop">
+
+    <div class="section-header">
+
+        <div>
+            <p>OUR COLLECTION</p>
+            <h2>Featured Pieces</h2>
+        </div>
+
+        <p>04 PRODUCTS</p>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter active">ALL</button>
+        <button class="filter">T-SHIRTS</button>
+        <button class="filter">HOODIES</button>
+        <button class="filter">OVERSIZED</button>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <span class="badge">NEW</span>
+
+                <img
+                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                alt="Black T-Shirt">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Essential Black Tee</h3>
+
+                <p>Heavyweight cotton · Oversized fit</p>
+
+                <span class="price">₹899</span>
+
+                <button class="add"
+                        onclick="addToCart('Essential Black Tee',899)">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <span class="badge">BESTSELLER</span>
+
+                <img
+                src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=800&q=80"
+                alt="White T-Shirt">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Minimal White Tee</h3>
+
+                <p>Premium cotton · Relaxed fit</p>
+
+                <span class="price">₹799</span>
+
+                <button class="add"
+                        onclick="addToCart('Minimal White Tee',799)">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80"
+                alt="Oversized T-Shirt">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Shadow Oversized Tee</h3>
+
+                <p>240 GSM · Drop shoulder</p>
+
+                <span class="price">₹999</span>
+
+                <button class="add"
+                        onclick="addToCart('Shadow Oversized Tee',999)">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <span class="badge">LIMITED</span>
+
+                <img
+                src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"
+                alt="Black Hoodie">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>NOIR Signature Hoodie</h3>
+
+                <p>Heavyweight fleece · Premium fit</p>
+
+                <span class="price">₹1,699</span>
+
+                <button class="add"
+                        onclick="addToCart('NOIR Signature Hoodie',1699)">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BANNER -->
+
+<section class="banner" id="new">
+
+    <p>LIMITED DROP</p>
+
+    <h2>THE NIGHT COLLECTION</h2>
+
+    <p>
+        Dark tones. Heavyweight fabrics.
+        No unnecessary details.
+    </p>
+
+    <button class="btn btn-white">
+        SHOP THE DROP
+    </button>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <p>STAY IN THE LOOP</p>
+
+    <h2>Never Miss A Drop.</h2>
+
+    <p>
+        Get early access to new collections and exclusive releases.
+    </p>
+
+    <div class="email-box">
+
+        <input
+        type="email"
+        placeholder="Your email address">
+
+        <button onclick="subscribe()">
+            JOIN
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>NOIR</h3>
+
+            <p>
+                Premium streetwear for the next generation.
+                Designed in India.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>SHOP</h3>
+
+            <a href="#">T-Shirts</a>
+            <a href="#">Hoodies</a>
+            <a href="#">Oversized</a>
+            <a href="#">New Arrivals</a>
+
+        </div>
+
+        <div>
+
+            <h3>HELP</h3>
+
+            <a href="#">Contact</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Size Guide</a>
+
+        </div>
+
+        <div>
+
+            <h3>SOCIAL</h3>
+
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Pinterest</a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 NOIR. ALL RIGHTS RESERVED.
+    </div>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <span class="close" onclick="closeCart()">✕</span>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+
+        <span>Total</span>
+
+        <strong>
+            ₹<span id="cartTotal">0</span>
+        </strong>
+
+    </div>
+
+    <button class="checkout" onclick="checkout()">
+        CHECKOUT
+    </button>
+
+</div>
+
+
+<script>
+
+let cart = [];
+let total = 0;
+
+
+/* ADD PRODUCT */
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    total += price;
+
+    updateCart();
+
+    openCart();
+}
+
+
+/* UPDATE CART */
+
+function updateCart() {
+
+    document.getElementById("cartCount").innerText = cart.length;
+
+    document.getElementById("cartTotal").innerText = total;
+
+    let container = document.getElementById("cartItems");
+
+    container.innerHTML = "";
+
+    cart.forEach((item, index) => {
+
+        container.innerHTML += `
+
+        <div class="cart-item">
+
+            <div>
+
+                <strong>${item.name}</strong>
+
+                <br>
+
+                <small>₹${item.price}</small>
+
+            </div>
+
+            <span
+                style="cursor:pointer;color:#777"
+                onclick="removeItem(${index})">
+                ✕
+            </span>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* REMOVE */
+
+function removeItem(index) {
+
+    total -= cart[index].price;
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+/* CART OPEN */
+
+function openCart() {
+
+    document.getElementById("cart")
+    .classList.add("open");
+
+}
+
+
+/* CART CLOSE */
+
+function closeCart() {
+
+    document.getElementById("cart")
+    .classList.remove("open");
+
+}
+
+
+/* CHECKOUT */
+
+function checkout() {
+
+    if(cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    alert(
+        "Thank you for shopping with NOIR!\n\n" +
+        "Order Total: ₹" + total +
+        "\n\nConnect a payment gateway here."
+    );
+
+}
+
+
+/* NEWSLETTER */
+
+function subscribe() {
+
+    let email =
+        document.querySelector(".email-box input").value;
+
+    if(email === "") {
+
+        alert("Please enter your email.");
+
+        return;
+
+    }
+
+    alert("You're subscribed to NOIR.");
+
+}
+
+</script>
+
+</body>
+          </html>
